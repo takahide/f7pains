@@ -3,24 +3,24 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 
 
 .topcoat-navigation-bar {
-    height: 50px;
+    height: 40px;
     font-weight: bold;
-    background: rgb(30, 30, 30);
+    background: rgb(230, 220, 200);
     border: none;
+    border-bottom: solid 1px #533;
 }
 
 .topcoat-navigation-bar__bg {
     background: rgba(0, 0, 0, 0);
 }
 
-.onsen_navigator-title {
-    font-size: 15px;
-    color: #fff;
+.topcoat-navigation-bar__title {
+
 }
 
 .topcoat-icon-button--quiet {
     background: rgba(0, 0, 0, 0);
-    color: #fff;
+    color: #966;
     font-size: 15px;
     margin-left: 10px;
 }
@@ -30,26 +30,14 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
     opacity: .8;
 }
 
-.player {
-  background: rgb(0, 0, 0);
-  color: rgb(255, 255, 255);
-  border: solid 1px rgb(255, 0, 0);
-  .profile {
-    padding: 10px;
-    .face {
-      float: left;
-      width: 50px;
-      height: 50px;
-      border-radius: 25px;
+.post {
+  width: 100%;
+  padding-top: 20px;
+  .post-img {
+    width: 90%;
+    margin: 0 auto;
+    img {
+      width: 100%;
     }
-    .name {
-      float: left;
-      font-size: 140%;
-    }
-  }
-  .record {
-    clear: both;
-    padding: 10px;
   }
 }
-

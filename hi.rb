@@ -3,6 +3,7 @@ require 'sinatra'
 require 'active_record'
 require 'mysql2'
 require 'haml'
+require 'slim'
 
 configure :development do
   require 'sinatra/reloader'
@@ -36,7 +37,7 @@ class Jockey < ActiveRecord::Base
 end
 
 get '/' do
-  haml :index
+  slim :index
 end
 
 get '/questions' do
@@ -78,12 +79,6 @@ get '/jockey' do
   end
 end
 
-get '/page1.html' do
-  content_type :html, :charset => 'utf-8'
-#  test = Test.find(1)
-#  @str = test.test
-  haml :page1
-end
 
 get '/player.html' do
   content_type :html, :charset => 'utf-8'
@@ -95,7 +90,8 @@ get '/player.html' do
 end
 
 get %r{^/(.*)\.html$} do
-  haml :"#{ params[:captures].first }"
+  content_type :html, :charset => 'utf-8'
+  slim :"#{ params[:captures].first }"
 end
 
 get '/css/style.css' do

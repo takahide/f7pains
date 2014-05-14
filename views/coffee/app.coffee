@@ -1,6 +1,6 @@
 'use strict'
-baseball = angular.module 'myApp', ['onsen.directives']
+rokuro = angular.module 'myApp', ['onsen.directives']
 
-baseball.controller 'topController', ($scope) ->
-  $scope.goToPlayer = ->
-    $scope.ons.navigator.pushPage 'player.html', '細川貴英'
+rokuro.controller 'topController', ($scope) ->
+  $('.post-img').on 'click', ->
+    $scope.ons.navigator.pushPage 'details.html', {title: "hoge"}
