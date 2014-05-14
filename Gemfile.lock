@@ -26,12 +26,9 @@ GEM
       tilt
     i18n (0.6.9)
     json (1.8.1)
-    mini_portile (0.5.3)
     minitest (5.3.3)
     multi_json (1.8.4)
     mysql2 (0.3.15)
-    nokogiri (1.6.1)
-      mini_portile (~> 0.5.0)
     rack (1.5.2)
     rack-coffee (1.0.3)
       coffee-script
@@ -67,7 +64,6 @@ PLATFORMS
 DEPENDENCIES
   haml
   mysql2
-  nokogiri
   rack-coffee
   rake
   sass
