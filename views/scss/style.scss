@@ -1,0 +1,55 @@
+/* Eric Meyer's Reset CSS v2.0 - http://cssreset.com */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}
+
+
+.topcoat-navigation-bar {
+    height: 50px;
+    font-weight: bold;
+    background: rgb(30, 30, 30);
+    border: none;
+}
+
+.topcoat-navigation-bar__bg {
+    background: rgba(0, 0, 0, 0);
+}
+
+.onsen_navigator-title {
+    font-size: 15px;
+    color: #fff;
+}
+
+.topcoat-icon-button--quiet {
+    background: rgba(0, 0, 0, 0);
+    color: #fff;
+    font-size: 15px;
+    margin-left: 10px;
+}
+
+.topcoat-icon-button--quiet:active {
+    color: #666;
+    opacity: .8;
+}
+
+.player {
+  background: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  border: solid 1px rgb(255, 0, 0);
+  .profile {
+    padding: 10px;
+    .face {
+      float: left;
+      width: 50px;
+      height: 50px;
+      border-radius: 25px;
+    }
+    .name {
+      float: left;
+      font-size: 140%;
+    }
+  }
+  .record {
+    clear: both;
+    padding: 10px;
+  }
+}
+
