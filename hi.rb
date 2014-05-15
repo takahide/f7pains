@@ -4,6 +4,7 @@ require 'active_record'
 require 'mysql2'
 require 'haml'
 require 'slim'
+require 'coffee_script'
 
 configure :development do
   require 'sinatra/reloader'
