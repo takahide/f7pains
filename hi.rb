@@ -80,7 +80,6 @@ get '/jockey' do
   end
 end
 
-
 get '/player.html' do
   content_type :html, :charset => 'utf-8'
   player = Player.find(1)
