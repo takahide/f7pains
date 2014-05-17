@@ -1,0 +1,67 @@
+doctype 5
+html lang="ja"
+  head
+    meta charset="utf-8"
+    meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui"
+    meta name="apple-mobile-web-app-capable" content="yes"
+    meta name="apple-mobile-web-app-status-bar-style" content="black"
+    title テスト
+    link rel="stylesheet" href="lib/framework7/css/framework7.css"
+    link rel="stylesheet" href="lib/framework7/css/my-app.css"
+    link rel="stylesheet" href="css/style.css"
+  body
+    .statusbar-overlay
+    .panel-overlay
+    .panel.panel-left.panel-reveal
+      .content-block
+        p Left panel content goes here
+    .panel.panel-right.panel-cover
+      .content-block
+        p Right panel content goes here
+    .views
+      .view.view-main
+        .navbar
+          .navbar-inner
+            .center.sliding Awesome App
+            .right
+              a.link.icon-only.open-panel href="#"
+                i.icon.icon-bars-blue
+
+        .pages.navbar-through.toolbar-through
+          .page data-page="index"
+            .page-content
+              .content-block-title Welcome To My Awesome App
+              .content-block
+                .content-block-inner
+                  p Couple of worlds here because my app is so awesome!
+                  p Duis sed erat ac eros ultrices pharetra id ut tellus. Praesent rhoncus enim ornare ipsum aliquet ultricies. Pellentesque sodales erat quis elementum sagittis.
+              .content-block-title
+              .list-block
+                ul
+                  li
+                    a.item-link href="about.html"
+                      .item-content
+                        .item-inner
+                          .item-title About
+                  li
+                    a.item-link href="services.html"
+                      .item-content
+                        .item-inner
+                          .item-title Services
+              .content-block-title Side panels
+              .content-block
+                .row
+                  .col-50
+                    a.button.open-panel href="#" data-panel="left" Left Panel
+                  .col-50
+                    a.button.open-panel href="#" data-panel="right" Right Panel
+        .toolbar
+          .toolbar-inner
+            a.link href="#" Link 1
+            a.link href="#" Link 2
+    script type="text/javascript" src="lib/framework7/js/framework7.js"
+    script type="text/javascript" src="lib/framework7/js/my-app.js"
+    script src="lib/jquery-2.0.2.min.js"
+    script src="js/app.js"
+
+

@@ -1,4 +1,16 @@
-ons-scroller
-  #details ng-controller="detailsController"
-    img.photo src="img/rokuro0.jpg"
-
+.navbar
+  .navbar-inner
+    .left
+      a.back.link href="#"
+        i.icon.icon-back-blue
+        span 戻る
+    .center.sliding #{@title}
+    .right
+      a.link.icon-only.open-panel href="#"
+        i.icon.icon-bars-blue
+.pages.navbar-through.toolbar-through
+  .page data-page="index"
+    .page-content
+      #details
+        img.photo src="img/rokuro#{@id}.jpg"
+        p.description 説明とかが入ります説明とかが入ります説明とかが入ります

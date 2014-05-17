@@ -90,6 +90,8 @@ get '/player.html' do
 end
 
 get %r{^/(.*)\.html$} do
+  @id = params['id']
+  @title = params['title']
   content_type :html, :charset => 'utf-8'
   slim :"#{ params[:captures].first }"
 end

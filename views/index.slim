@@ -1,15 +1,58 @@
 doctype 5
-html lang="ja" ng-app="myApp"
+html lang="ja"
   head
     meta charset="utf-8"
-    meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"
+    meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui"
+    meta name="apple-mobile-web-app-capable" content="yes"
+    meta name="apple-mobile-web-app-status-bar-style" content="black"
     title テスト
-    link rel="stylesheet" href="lib/onsen/css/onsenui.css"
-    link rel="stylesheet" href="lib/onsen/css/topcoat-mobile-onsen-ios7.css"
+    link rel="stylesheet" href="lib/framework7/css/framework7.css"
+    link rel="stylesheet" href="lib/framework7/css/my-app.css"
+    link rel="stylesheet" href="lib/font-awesome/font-awesome.min.css"
     link rel="stylesheet" href="css/style.css"
-  body ontouchmove="event.preventDefault()"
-    ons-screen page="sliding_menu.html"
-    script src="lib/jquery-2.0.2.min.js"
-    script src="lib/onsen/js/angular/angular.js"
-    script src="lib/onsen/js/onsenui.js"
+  body
+    .statusbar-overlay
+    .panel-overlay
+    .panel.panel-left.panel-reveal
+      .content-block
+        ul#menu
+          li.menu 何かメニュー
+          li.menu 何かメニュー
+          li.menu 何かメニュー
+          li.menu 何かメニュー
+          li.menu 何かメニュー
+          li.menu 何かメニュー
+    .views
+      .view.view-main
+        .navbar
+          .navbar-inner
+            .center.sliding ろくろくろ（仮）
+            .right
+              a.link.icon-only.open-panel href="#"
+                i.icon.icon-bars-blue
+        .pages.navbar-through.toolbar-through
+          .page data-page="index"
+            .page-content
+              #top
+                - for i in 0..10
+                  .post
+                    .img
+                      a href="details.html?id=#{i%4}&title=僕の作品#{i+1}"
+                        img src="img/rokuro#{i%4}.jpg"
+                    .description
+                      p.title 僕の作品#{i+1} 
+                      p.author 
+                        span by takahide 
+                        span.time 2時間前
+                    .buttons
+                      .my-button 
+                        p.icon.fa.fa-heart
+                        p.text いいね！
+                      .my-button 
+                        p.icon.fa.fa-check-circle
+                        p.text 欲しい！
+    script type="text/javascript" src="lib/framework7/js/framework7.js"
+    script type="text/javascript" src="lib/framework7/js/my-app.js"
+    script src="lib/jquery/jquery-2.0.2.min.js"
+    script src="lib/fastclick/fastclick.js"
     script src="js/app.js"
