@@ -5,55 +5,68 @@ body {
   font-family:'Lucida Grande', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, メイリオ, sans-serif;
 }
 
+#player {
+  background: rgba(0, 0, 0, .8);
+  .number {
+    width: 24px;
+    height: 32px;
+  }
+  .name {
+    font-size: 130%;
+    color: #fff;
+  }
+  .image {
+    width: 100%;
+    margin: 20px auto;
+    border: solid 2px #fff;
+  }
+}
+
+#nav {
+  background: rgba(0, 0, 0, .8);
+  color: #fff;
+  border-bottom: solid 1px #f00;
+}
+
 #top {
-  .post {
-    clear: both;
+  background: #eee;
+  .container {
     width: 90%;
-    margin: 0 auto;
-    padding: 20px 0;
-
-    .img {
-      cursor: pointer;
-      width: 100%;
-      box-shadow: 0px 0px 15px -5px rgba(0, 0, 0, 0.8);
-
+    margin: 20px auto;
+    .menu-button {
+      border: solid 1px #f00;
       img {
         width: 100%;
       }
     }
-    .description {
-      color: #555;
-      padding-top: 10px;
-      margin: 0 2%;
-
-      .title {
-        font-weight: bold;
-      }
-      .author {
-        .time {
-          color: #888;
-          font-size: 90%;
-        }
-      }
+    .title {
+      padding: 20px 0;
     }
-    .buttons {
-      padding: 10px 0;
-      .my-button {
+    .post {
+      clear: both;
+
+      .img {
         cursor: pointer;
-        margin: 0 2%;
-        width: 46%;
-        height: 50px;
-        background: #fafafa;
-        border-radius: 5px;
-        text-align: center;
-        float: left;
-        .icon {
-          padding-top: 7px;
-          padding-bottom: 4px;
-          color: #aaa;
+        width: 100%;
+        box-shadow: 0px 0px 15px -5px rgba(0, 0, 0, 0.8);
+
+        img {
+          width: 100%;
         }
-        .text {
-          color: #aaa;
+      }
+      .description {
+        color: #555;
+        padding-top: 10px;
+        margin: 0 2%;
+
+        .title {
+          font-weight: bold;
+        }
+        .author {
+          .time {
+            color: #888;
+            font-size: 90%;
+          }
         }
       }
     }
@@ -64,6 +77,17 @@ body {
   .menu {
     padding: 10px;
     border-bottom: solid 1px #333;
+    .number {
+      width: 9px;
+      height: 15px;
+    }
+    .name {
+      margin-left: 5px;
+      color: #fff;
+    }
+    .face {
+      margin-left: 5px;
+    }
   }
 }
 
@@ -74,9 +98,5 @@ body {
   .description {
     padding: 10px;
   }
-}
-
-.navbar {
-  opacity: .9;
 }
 

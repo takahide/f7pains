@@ -1,5 +1,7 @@
 G =
-  selectedPost: 0
+  selectedPlayer: 0
 
-$('#top .post .buttons .my-button').on 'click', ->
-    $(".icon", this).css "color", "rgb(200, 103, 100)"
+$ ->
+  $("#menu .menu .detail").on "click", ->
+    i = $(@).index("#menu .menu .detail") + 1
+    $("#player .image").attr "src", "img/players/player#{i}.jpg"

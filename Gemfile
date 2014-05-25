@@ -7,7 +7,11 @@ gem 'rake'
 gem 'mysql2'
 gem 'haml'
 gem 'slim'
-gem 'sinatra-contrib'
 gem 'sass'
 gem 'rack-coffee'
 gem 'therubyracer'
+group :development do
+  gem 'sinatra-contrib'
+  gem 'guard'
+  gem 'guard-livereload', require: false
+end

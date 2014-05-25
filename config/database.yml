@@ -1,13 +1,13 @@
 pains_dev:
   adapter: mysql2
-  database: keibahack
+  database: pains
   host: localhost
   username: root 
   password: taka0763
   encoding: utf8
 local_dev:
   adapter: mysql2
-  database: keibahack
+  database: pains
   host: localhost
   username: root 
   password:

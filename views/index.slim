@@ -11,46 +11,61 @@ html lang="ja"
     link rel="stylesheet" href="lib/font-awesome/font-awesome.min.css"
     link rel="stylesheet" href="css/style.css"
   body
+    #player.popup.popup-about
+      .content-block
+        img.number src="img/numbers/1.png"
+        img.number src="img/numbers/4.png"
+        span.name 細川 貴英 投手 右投左打
+        img.image src=""
+        a.close-popup href="#" Close popup
+      p Lorem ipsum dolor ...
+
     .statusbar-overlay
     .panel-overlay
     .panel.panel-left.panel-reveal
       .content-block
         ul#menu
-          li.menu 何かメニュー
-          li.menu 何かメニュー
-          li.menu 何かメニュー
-          li.menu 何かメニュー
-          li.menu 何かメニュー
-          li.menu 何かメニュー
+          - for p in @players do
+            li.menu 
+              a.detail.open-popup href="#" data-popup=".popup-about" 
+                span.name #{p.name}
+                img.face src="img/faces/zekkocho.gif"
+          - for p in @players do
+            li.menu 
+              a.open-popup href="#" data-popup=".popup-about" 
+                span.name #{p.name}
+                img.face src="img/faces/zekkocho.gif"
+          - for p in @players do
+            li.menu 
+              a.open-popup href="#" data-popup=".popup-about" 
+                span.name #{p.name}
+                img.face src="img/faces/zekkocho.gif"
+          - for p in @players do
+            li.menu 
+              a.open-popup href="#" data-popup=".popup-about" 
+                span.name #{p.name}
+                img.face src="img/faces/zekkocho.gif"
     .views
       .view.view-main
-        .navbar
+        .navbar#nav
           .navbar-inner
-            .center.sliding ろくろくろ（仮）
+            .center.sliding 底無ペインズ
             .right
               a.link.icon-only.open-panel href="#"
-                i.icon.icon-bars-blue
+                i.icon.icon-bars-white
         .pages.navbar-through.toolbar-through
           .page data-page="index"
-            .page-content
-              #top
+            .page-content#top
+              .container
+                a.menu-button.open-panel href="#"
+                  img src="img/games/game3.jpg"
+                p.title 最近の試合
                 - for i in 0..10
                   .post
                     .img
                       a href="details.html?id=#{i%4}&title=僕の作品#{i+1}"
-                        img src="img/rokuro#{i%4}.jpg"
+                        img src="img/games/game3.jpg"
                     .description
-                      p.title 僕の作品#{i+1} 
-                      p.author 
-                        span by takahide 
-                        span.time 2時間前
-                    .buttons
-                      .my-button 
-                        p.icon.fa.fa-heart
-                        p.text いいね！
-                      .my-button 
-                        p.icon.fa.fa-check-circle
-                        p.text 欲しい！
     script type="text/javascript" src="lib/framework7/js/framework7.js"
     script type="text/javascript" src="lib/framework7/js/my-app.js"
     script src="lib/jquery/jquery-2.0.2.min.js"

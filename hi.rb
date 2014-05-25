@@ -12,33 +12,26 @@ configure :development do
 end
 
 configure :production do
-  set :port, 696
+  set :port, 1111
 end
 
-set :port, 696
+set :port, 1111
 
 ActiveRecord::Base.configurations = YAML.load_file('config/database.yml')
 
 ActiveRecord::Base.establish_connection(:local_dev) if development?
 ActiveRecord::Base.establish_connection(:pains_dev) if production?
 
-class Question < ActiveRecord::Base
-end
-
-class Category < ActiveRecord::Base
-end
-
-class History < ActiveRecord::Base
-end
-
-class Race < ActiveRecord::Base
-end
-
-class Jockey < ActiveRecord::Base
+class Player < ActiveRecord::Base
 end
 
 get '/' do
-  slim :index
+  ActiveRecord::Base.connection_pool.with_connection do
+    begin
+      @players = Player.all()
+      slim :index
+    end
+  end
 end
 
 get '/questions' do
