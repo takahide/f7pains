@@ -27,22 +27,7 @@ html lang="ja"
         ul#menu
           - for p in @players do
             li.menu 
-              a.detail.open-popup href="#" data-popup=".popup-about" 
-                span.name #{p.name}
-                img.face src="img/faces/zekkocho.gif"
-          - for p in @players do
-            li.menu 
-              a.open-popup href="#" data-popup=".popup-about" 
-                span.name #{p.name}
-                img.face src="img/faces/zekkocho.gif"
-          - for p in @players do
-            li.menu 
-              a.open-popup href="#" data-popup=".popup-about" 
-                span.name #{p.name}
-                img.face src="img/faces/zekkocho.gif"
-          - for p in @players do
-            li.menu 
-              a.open-popup href="#" data-popup=".popup-about" 
+              a.detail.open-popup href="#" data-popup=".popup-about" onclick="setPlayer()"
                 span.name #{p.name}
                 img.face src="img/faces/zekkocho.gif"
     .views
@@ -56,17 +41,30 @@ html lang="ja"
         .pages.navbar-through.toolbar-through
           .page data-page="index"
             .page-content#top
+              .header
+                img src="img/top/uniform.jpg"
               .container
                 a.menu-button.open-panel href="#"
-                  img src="img/games/game3.jpg"
-                p.title 最近の試合
-                - for i in 0..10
-                  .post
-                    .img
-                      a href="details.html?id=#{i%4}&title=僕の作品#{i+1}"
-                        img src="img/games/game3.jpg"
-                    .description
-    script type="text/javascript" src="lib/framework7/js/framework7.js"
+                  img src="img/top/member.jpg"
+                #games
+                  p.title 最近の試合
+                  - for i in 0..0
+                    .post
+                      .img
+                        a href="details.html?id=#{i%4}&title=僕の作品#{i+1}"
+                          img src="img/games/game2.jpg"
+                      .description
+              #players
+                p.title 選手紹介
+                - for p in @players do
+                  .player
+                    img.pic src="img/players/#{p.id}.jpg"
+                    img.transparent src="img/top/tp.png"
+                    .description 
+                      .name #{p.back_name}
+                      .number #{p.number}
+                
+    script type="text/javascript" src="lib/framework7/js/framework7.min.js"
     script type="text/javascript" src="lib/framework7/js/my-app.js"
     script src="lib/jquery/jquery-2.0.2.min.js"
     script src="lib/fastclick/fastclick.js"

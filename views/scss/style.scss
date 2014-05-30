@@ -23,50 +23,84 @@ body {
 }
 
 #nav {
-  background: rgba(0, 0, 0, .8);
+  background: rgba(0, 0, 0, .87);
   color: #fff;
   border-bottom: solid 1px #f00;
 }
 
 #top {
   background: #eee;
+  .header {
+    img {
+      width: 100%;
+      border: solid 1px #333;
+    }
+  }
   .container {
     width: 90%;
-    margin: 20px auto;
+    margin: 15px auto;
     .menu-button {
-      border: solid 1px #f00;
       img {
         width: 100%;
+        border: solid 2px #f00;
       }
     }
-    .title {
-      padding: 20px 0;
-    }
-    .post {
-      clear: both;
+    #games {
+      .title {
+        padding: 20px 0;
+      }
+      .post {
+        clear: both;
 
-      .img {
-        cursor: pointer;
-        width: 100%;
-        box-shadow: 0px 0px 15px -5px rgba(0, 0, 0, 0.8);
-
-        img {
+        .img {
+          cursor: pointer;
           width: 100%;
+          box-shadow: 0px 0px 15px -5px rgba(0, 0, 0, 0.8);
+
+          img {
+            width: 100%;
+          }
         }
+        .description {
+          color: #555;
+          padding-top: 10px;
+          margin: 0 2%;
+        }
+      }
+    }
+  }
+  #players {
+    background: #000;
+    .title {
+      padding: 20px 10px;
+      color: #fff;
+    }
+    .player {
+      width: 33%;
+      float: left;
+      position: relative;
+      .pic {
+        width: 100%;
+        border: solid 1px #000;
+      }
+      .transparent {
+        position: absolute;
+        top: 0;
+        width: 100%;
       }
       .description {
-        color: #555;
-        padding-top: 10px;
-        margin: 0 2%;
-
-        .title {
-          font-weight: bold;
+        position: absolute;
+        bottom: 5px;
+        width: 100%;
+        color: #fff;
+        text-align: center;
+        padding: 5px 0;
+        .number {
+          color: #f00;
+          font-size: 120%;
         }
-        .author {
-          .time {
-            color: #888;
-            font-size: 90%;
-          }
+        .name {
+
         }
       }
     }
