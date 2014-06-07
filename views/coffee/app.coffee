@@ -35,3 +35,17 @@ $(".submit").on "click", ->
     error: ->
       alert "失敗"
   }
+
+flipsnap = Flipsnap '.flipsnap', {
+  distance: 300
+}
+$next = $('.next').click ->
+  flipsnap.toNext()
+
+$prev = $('.prev').click ->
+  flipsnap.toPrev()
+
+flipsnap.element.addEventListener 'fspointmove', ->
+  $next.attr 'disabled', !flipsnap.hasNext()
+  $prev.attr 'disabled', !flipsnap.hasPrev()
+, false

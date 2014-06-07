@@ -71,24 +71,14 @@ body {
   .header {
     img {
       width: 100%;
-      border: solid 1px #333;
     }
   }
   .container {
-    width: 90%;
-    margin: 15px auto;
-    .menu-button {
-      img {
-        width: 100%;
-        border: solid 2px #f00;
-        &:active {
-          opacity: .8;
-        }
-      }
-    }
+    padding: 10px 0;
+    width: 100%;
     #games {
       .title {
-        padding: 20px 0;
+        padding: 10px 10px 5px;
       }
       .game {
         position: relative;
@@ -99,6 +89,9 @@ body {
           cursor: pointer;
           width: 100%;
           box-shadow: 0px 0px 15px -5px rgba(0, 0, 0, 0.8);
+          &:active {
+            opacity: .9;
+          }
           img {
             width: 100%;
           }
@@ -106,7 +99,8 @@ body {
         .description {
           position: absolute;
           bottom: 20px;
-          width: 200px;
+          width: 270px;
+          padding: 5px;
           background: rgba(0, 0, 0, .8);
           color: #fff;
         }
@@ -137,7 +131,7 @@ body {
       }
       .description {
         position: absolute;
-        bottom: 15px;
+        bottom: 5px;
         width: 100%;
         color: #fff;
         text-align: center;
@@ -175,12 +169,36 @@ body {
 }
 
 #details {
-  .photo {
+  .score {
+    width: 90%;
+    margin: 20px auto;
+  }
+}
+
+.viewport {
     width: 100%;
-  }
-  .description {
-    padding: 10px;
-  }
+    overflow: hidden;
+    margin: 0 auto;
+    -webkit-transform: translateZ(0); /* Optional: When heavy at iOS6+ */
+}
+
+.flipsnap {
+    width: 9600px; /* 320px(item width) * 3(item count) */
+}
+
+.flipsnap:after {
+    content: '';
+    display: block;
+    clear: both;
+    height: 0;
+}
+
+.item {
+    float: left;
+    width: 280px;
+    margin: 0 10px;
+    background: #EFEFEF;
+    color: #666;
 }
 
 @media (min-width: 980px) {
@@ -193,5 +211,9 @@ body {
       width: 50%;
       float: left;
     }
+    .item {
+      width: 460px;
+    }
   }
 }
+

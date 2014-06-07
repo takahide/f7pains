@@ -162,7 +162,7 @@ get '/details.html' do
       for o in orders
         p = Player.find o.player
         scores = Score.where game: game_id, player: p.id
-        @orders.push O.new(o.id, o.order, o.position, p.name, scores)
+        @orders.push O.new(o.id, o.order, o.position, p.first_name, scores)
       end
 
       slim :details

@@ -9,11 +9,12 @@
         i.icon.icon-bars-white
 .pages.navbar-through.toolbar-through
   .page data-page="index"
-    .page-content
-      - for o in @orders
-        p.player
-          span.order #{o.order}
-          span.position #{o.position}
-          span.name #{o.player}
-          - for s in o.scores
-            span.result #{s.result}
+    .page-content#details
+      table.score
+        - for o in @orders
+          tr.player
+            td.order #{o.order}
+            td.position #{o.position}
+            td.name #{o.player}
+            - for s in o.scores
+              td.result #{s.result}

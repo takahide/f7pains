@@ -57,15 +57,16 @@ html lang="ja"
                 .header
                   img src="img/top/uniform.jpg"
                 .container
-                  a.menu-button.open-panel href="#"
-                    img src="img/top/member.jpg"
                   #games
-                    p.title 最近の試合
-                    - for g in @games
-                      a.game href="details.html?game=#{g.id}"
-                        .img
-                          img src="img/games/game2.jpg"
-                        p.description vs #{g.opponent}
+                    p.title 最近の試合 
+                    .viewport
+                      .flipsnap
+                        - for g in @games
+                          .item
+                            a.game href="details.html?game=#{g.id}"
+                              .img
+                                img src="img/games/#{g.id}.jpg"
+                              p.description vs #{g.opponent}
               #players
                 p.title 選手紹介
                 - for p in @players do
@@ -80,4 +81,5 @@ html lang="ja"
     script type="text/javascript" src="lib/framework7/js/my-app.js"
     script src="lib/jquery/jquery-2.0.2.min.js"
     script src="lib/fastclick/fastclick.js"
+    script src="lib/flipsnap/flipsnap.min.js"
     script src="js/app.js"
