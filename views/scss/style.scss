@@ -5,20 +5,58 @@ body {
   font-family:'Lucida Grande', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, メイリオ, sans-serif;
 }
 
-#player {
+#profile {
   background: rgba(0, 0, 0, .8);
-  .number {
-    width: 24px;
-    height: 32px;
+  .hidden {
+    display: none;
   }
-  .name {
-    font-size: 130%;
-    color: #fff;
+  .header {
+    .number {
+      width: 24px;
+      height: 32px;
+    }
+    .name {
+      margin-left: 10px;
+      font-size: 130%;
+      color: #fff;
+    }
+    .average {
+      margin-left: 10px;
+      color: #aaa;
+    }
+    .homerun {
+      margin-left: 10px;
+      color: #aaa;
+    }
   }
-  .image {
-    width: 100%;
-    margin: 20px auto;
-    border: solid 2px #fff;
+  .main {
+    margin: 20px 0;
+    clear: both;
+    .image {
+      width: 50%;
+      border: solid 2px #fff;
+      float: left;
+    }
+    .score {
+      margin: 0 20px;
+      float: left;
+      .title {
+        color: #fff;
+      }
+      .results {
+        margin: 10px 0;
+        .result {
+          margin: 3px 0;
+          color: #fff;
+        }
+        .hit1 {
+          color: #cdf;
+        }
+        .hit2, .hit3, .hit4, .hit5 {
+          color: #fbb;
+        }
+      }
+    }
   }
 }
 
@@ -43,28 +81,34 @@ body {
       img {
         width: 100%;
         border: solid 2px #f00;
+        &:active {
+          opacity: .8;
+        }
       }
     }
     #games {
       .title {
         padding: 20px 0;
       }
-      .post {
-        clear: both;
+      .game {
+        position: relative;
+        width: 100%;
+        margin: 20px;
 
         .img {
           cursor: pointer;
           width: 100%;
           box-shadow: 0px 0px 15px -5px rgba(0, 0, 0, 0.8);
-
           img {
             width: 100%;
           }
         }
         .description {
-          color: #555;
-          padding-top: 10px;
-          margin: 0 2%;
+          position: absolute;
+          bottom: 20px;
+          width: 200px;
+          background: rgba(0, 0, 0, .8);
+          color: #fff;
         }
       }
     }
@@ -79,9 +123,12 @@ body {
       width: 33%;
       float: left;
       position: relative;
+      &:active {
+        opacity: .8;
+      }
       .pic {
         width: 100%;
-        border: solid 1px #000;
+        border: 1px solid #000;
       }
       .transparent {
         position: absolute;
@@ -90,7 +137,7 @@ body {
       }
       .description {
         position: absolute;
-        bottom: 5px;
+        bottom: 15px;
         width: 100%;
         color: #fff;
         text-align: center;
@@ -114,6 +161,8 @@ body {
     .number {
       width: 9px;
       height: 15px;
+      margin-left: 5px;
+      color: #f00;
     }
     .name {
       margin-left: 5px;
@@ -134,3 +183,15 @@ body {
   }
 }
 
+@media (min-width: 980px) {
+  #top {
+    #left {
+      width: 50%;
+      float: left;
+    }
+    #players {
+      width: 50%;
+      float: left;
+    }
+  }
+}

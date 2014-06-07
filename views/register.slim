@@ -10,38 +10,49 @@ html lang="ja"
     link rel="stylesheet" href="lib/framework7/css/my-app.css"
     link rel="stylesheet" href="lib/font-awesome/font-awesome.min.css"
     link rel="stylesheet" href="css/style.css"
-  body
+  body game="#{@game.id}"
     #profile.popup.popup-about
       - for p in @players do
-        .content-block.hidden.close-popup id="profile#{p.id}"
-          .header
-            - if p.ten != 0
-              img.number src="img/numbers/#{p.ten}.png"
-            img.number src="img/numbers/#{p.one}.png"
-            span.name #{p.name}
-            span.average 打率 #{p.average}
-            span.homerun 本塁打 #{p.homerun}本
-          .main
-            img.image src="img/players/#{p.id}.jpg"
-            .score 
-              p.title 打撃成績
-              ul.results
-                - for s in p.scores do
-                  li.result class="hit#{s.hit}" #{s.result}
-
-
+        .content-block.hidden id="profile#{p.id}"
+          - ten = (p.number - (p.number % 10)) / 10
+          - one = p.number % 10
+          - if ten != 0
+            img.number src="img/numbers/#{ten}.png"
+          img.number src="img/numbers/#{one}.png"
+          span.name #{p.name}
+          p
+            input id="#{p.id}-score0"
+          p
+            input id="#{p.id}-score1"
+          p
+            input id="#{p.id}-score2"
+          p
+            input id="#{p.id}-score3"
+          p
+            input id="#{p.id}-score4"
+          p
+            button.close-popup.submit 送信
+          p
+            input id="#{p.id}-score5"
+          p
+            input id="#{p.id}-score6"
+          p
+            input id="#{p.id}-score7"
+          p
+            input id="#{p.id}-score8"
+          p
+            input id="#{p.id}-score9"
+          p
+            button.close-popup.submit 送信
+          a.close-popup.submit href="#" 送信
     .statusbar-overlay
-    .panel-overlay
     .panel.panel-left.panel-reveal
       .content-block
         ul#menu
           - for p in @players do
             li.menu 
-              a.detail.open-popup.player href="#" data-popup=".popup-about" player="#{p.id}"
-                img.image src="img/players/#{p.id}.jpg" width="20"
-                span.number #{p.number}
+              a.detail.open-popup href="#" data-popup=".popup-about" onclick="setPlayer()"
                 span.name #{p.name}
-                img.face src="img/faces/#{p.condition}.gif"
     .views
       .view.view-main
         .navbar#nav
@@ -53,21 +64,8 @@ html lang="ja"
         .pages.navbar-through.toolbar-through
           .page data-page="index"
             .page-content#top
-              #left
-                .header
-                  img src="img/top/uniform.jpg"
-                .container
-                  a.menu-button.open-panel href="#"
-                    img src="img/top/member.jpg"
-                  #games
-                    p.title 最近の試合
-                    - for g in @games
-                      a.game href="details.html?game=#{g.id}"
-                        .img
-                          img src="img/games/game2.jpg"
-                        p.description vs #{g.opponent}
               #players
-                p.title 選手紹介
+                p.title vs #{@opponent.name}
                 - for p in @players do
                   a.detail.open-popup.player player="#{p.id}" href="#" data-popup=".popup-about" onclick="setPlayer()"
                     img.pic src="img/players/#{p.id}.jpg"

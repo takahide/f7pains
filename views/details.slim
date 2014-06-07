@@ -3,13 +3,17 @@
     .left
       a.back.link href="#"
         i.icon.icon-back-white
-    .center.sliding #{@title}
+    .center.sliding vs #{@game.opponent}
     .right
       a.link.icon-only.open-panel href="#"
         i.icon.icon-bars-white
 .pages.navbar-through.toolbar-through
   .page data-page="index"
     .page-content
-      #details
-        img.photo src="img/rokuro#{@id}.jpg"
-        p.description 説明とかが入ります説明とかが入ります説明とかが入ります
+      - for o in @orders
+        p.player
+          span.order #{o.order}
+          span.position #{o.position}
+          span.name #{o.player}
+          - for s in o.scores
+            span.result #{s.result}
