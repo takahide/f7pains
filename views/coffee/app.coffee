@@ -9,7 +9,7 @@ class Page
 
 page = new Page()
 
-$(".player").on "click", ->
+$("body").on "click", ".player", ->
   page.setPlayer $(@).attr("player")
 
 $(".submit").on "click", ->

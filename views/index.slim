@@ -8,19 +8,19 @@ html lang="ja"
     title #{@team.name}
     link rel="stylesheet" href="lib/framework7/css/framework7.css"
     link rel="stylesheet" href="lib/framework7/css/my-app.css"
-    link rel="stylesheet" href="lib/font-awesome/font-awesome.min.css"
     link rel="stylesheet" href="css/style.css"
   body
     #profile.popup.popup-about
       - for p in @players do
-        .content-block.hidden.close-popup id="profile#{p.id}"
+        .content-block.hidden id="profile#{p.id}"
+          .close-popup ×
           .header
             - if p.ten != 0
               img.number src="img/numbers/#{p.ten}.png"
             img.number src="img/numbers/#{p.one}.png"
             span.name #{p.name}
-            span.average 打率 #{p.average}
-            span.homerun 本塁打 #{p.homerun}本
+            span.average #{p.average}
+            span.homerun #{p.homerun}本
           .main
             img.image src="img/players/#{p.id}.jpg"
             .score 
@@ -53,24 +53,23 @@ html lang="ja"
         .pages.navbar-through.toolbar-through
           .page data-page="index"
             .page-content#top
-              #left
+              .left
                 .header
                   img src="img/top/uniform.jpg"
-                .container
-                  #games
-                    p.title 最近の試合 
-                    .viewport
-                      .flipsnap
-                        - for g in @games
-                          .item
-                            a.game href="details.html?game=#{g.id}"
-                              .img
-                                img src="img/games/#{g.id}.jpg"
-                              p.description vs #{g.opponent}
-              #players
+                #games
+                  p.title 最近の試合 
+                  .viewport
+                    .flipsnap
+                      - for g in @games
+                        .item
+                          a.game href="details.html?game=#{g.id}"
+                            .img
+                              img src="img/games/#{g.id}.jpg"
+                            p.description vs #{g.opponent}
+              .right
                 p.title 選手紹介
                 - for p in @players do
-                  a.detail.open-popup.player player="#{p.id}" href="#" data-popup=".popup-about" onclick="setPlayer()"
+                  a.detail.open-popup.player player="#{p.id}" href="#" data-popup=".popup-about"
                     img.pic src="img/players/#{p.id}.jpg"
                     img.transparent src="img/top/tp.png"
                     .description 

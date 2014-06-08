@@ -33,6 +33,8 @@ class Team < ActiveRecord::Base
 end
 class Order < ActiveRecord::Base
 end
+class Point < ActiveRecord::Base
+end
 
 class P
   attr_accessor :id, :name, :back_name, :number, :average, :homerun, :scores
@@ -126,11 +128,24 @@ class O
   end
 end
 
+class PointSlim
+  attr_accessor :name, :points, :sum
+  def initialize(name, points)
+    @name = name; @points = points
+    @sum = 0
+    for p in points
+      if p != "x"
+        @sum += p.to_i
+      end
+    end
+  end
+end
+
 get '/' do
   ActiveRecord::Base.connection_pool.with_connection do
     begin
       @team = Team.find(1)
-      players = Player.where(team: 1)
+      players = Player.where team: 1
       @players = Array.new
       for p in players
         @players.push P.new(p)
@@ -151,6 +166,7 @@ get '/details.html' do
   ActiveRecord::Base.connection_pool.with_connection do
     begin
       game_id = params['game']
+
       game = Game.find game_id
       team = Team.find game.opponent
       @game = G.new(game.id, team.name)
@@ -158,13 +174,26 @@ get '/details.html' do
       orders = Order.where game: game_id
       @orders = Array.new
       @scores = Array.new
+      @players = Array.new
 
       for o in orders
         p = Player.find o.player
         scores = Score.where game: game_id, player: p.id
         @orders.push O.new(o.id, o.order, o.position, p.first_name, scores)
+        if p.team == game.team
+          @players.push P.new(p)
+        end
       end
 
+      points = Point.where game: game_id
+      for p in points
+        point_array = p.points.split ","
+        if p.top == 0
+          @top = PointSlim.new(p.name, point_array)
+        else
+          @bottom = PointSlim.new(p.name, point_array)
+        end
+      end
       slim :details
     end
   end
@@ -199,15 +228,6 @@ post '/register' do
       end
     end
   end
-end
-
-get '/player.html' do
-  content_type :html, :charset => 'utf-8'
-  player = Player.find(1)
-  @name = player.name
-  @first_name = player.first_name
-  @number = player.number
-  haml :player
 end
 
 get %r{^/(.*)\.html$} do

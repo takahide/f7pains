@@ -10,6 +10,14 @@ body {
   .hidden {
     display: none;
   }
+  .close-popup {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 150%;
+    color: #999;
+    cursor: pointer;
+  }
   .header {
     .number {
       width: 24px;
@@ -66,17 +74,17 @@ body {
   border-bottom: solid 1px #f00;
 }
 
-#top {
+#top, #details {
   background: #eee;
-  .header {
-    img {
-      width: 100%;
+  .left {
+    .header {
+      img {
+        width: 100%;
+      }
     }
-  }
-  .container {
-    padding: 10px 0;
     width: 100%;
     #games {
+      padding: 10px 0;
       .title {
         padding: 10px 10px 5px;
       }
@@ -107,7 +115,7 @@ body {
       }
     }
   }
-  #players {
+  .right {
     background: #000;
     .title {
       padding: 20px 10px;
@@ -169,47 +177,95 @@ body {
 }
 
 #details {
+  background: #000;
+  color: #fff;
+  .img {
+    width: 100%;
+    img {
+      width: 100%;
+    }
+  }
+  .points {
+    width: 90%;
+    margin: 10px auto;
+    background: #060;
+    td.head {
+      font-size: 80%;
+    }
+    td {
+      padding: 5px;
+      text-align: center;
+    }
+  }
   .score {
     width: 90%;
     margin: 20px auto;
+    .player {
+      .position {
+        font-size: 80%;
+      }
+      .hit1 {
+        color: #cdf;
+      }
+      .hit2, .hit3, .hit4, .hit5 {
+        color: #fbb;
+      }
+    }
   }
 }
 
-.viewport {
+#top {
+  .viewport {
     width: 100%;
     overflow: hidden;
     margin: 0 auto;
     -webkit-transform: translateZ(0); /* Optional: When heavy at iOS6+ */
-}
+  }
 
-.flipsnap {
+  .flipsnap {
     width: 9600px; /* 320px(item width) * 3(item count) */
-}
+  }
 
-.flipsnap:after {
+  .flipsnap:after {
     content: '';
     display: block;
     clear: both;
     height: 0;
-}
+  }
 
-.item {
+  .item {
     float: left;
     width: 280px;
     margin: 0 10px;
-    background: #EFEFEF;
-    color: #666;
+  }
+
+  .item img {
+    border: solid 2px #333;
+  }
+}
+
+@media (min-width: 650px) {
+  #top, #details {
+    .right {
+      .player {
+        width: 25%;
+      }
+    }
+  }
 }
 
 @media (min-width: 980px) {
-  #top {
-    #left {
+  #top, #details {
+    .left {
       width: 50%;
       float: left;
     }
-    #players {
+    .right {
       width: 50%;
       float: left;
+      .player {
+        width: 25%;
+      }
     }
     .item {
       width: 460px;

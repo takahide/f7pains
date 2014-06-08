@@ -10,11 +10,38 @@
 .pages.navbar-through.toolbar-through
   .page data-page="index"
     .page-content#details
-      table.score
-        - for o in @orders
-          tr.player
-            td.order #{o.order}
-            td.position #{o.position}
-            td.name #{o.player}
-            - for s in o.scores
-              td.result #{s.result}
+      .left
+        .img
+          img src="img/games/#{@game.id}.jpg"
+        table.points
+          tr 
+            td.head
+              - @top.points.each_with_index do |p, i|
+                td.head #{i+1}
+              td.head 計
+          tr.top
+            td.team #{@top.name}
+            - for p in @top.points
+              td.point #{p}
+            td.team #{@top.sum}
+          tr.bottom
+            td.team #{@bottom.name}
+            - for p in @bottom.points
+              td.point #{p}
+            td.team #{@bottom.sum}
+        table.score
+          - for o in @orders
+            tr.player
+              td.position #{o.position}
+              td.name #{o.player}
+              - for s in o.scores
+                td.result class="hit#{s.hit}" #{s.result}
+      .right
+        p.title 選手紹介
+        - for p in @players do
+          a.detail.open-popup.player player="#{p.id}" href="#" data-popup=".popup-about"
+            img.pic src="img/players/#{p.id}.jpg"
+            img.transparent src="img/top/tp.png"
+            .description 
+              .name #{p.back_name}
+              .number #{p.number}
