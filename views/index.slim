@@ -28,8 +28,6 @@ html lang="ja"
               ul.results
                 - for s in p.scores do
                   li.result class="hit#{s.hit}" #{s.result}
-
-
     .statusbar-overlay
     .panel-overlay
     .panel.panel-left.panel-reveal
@@ -57,7 +55,10 @@ html lang="ja"
                 .header
                   img src="img/top/uniform.jpg"
                 #games
-                  p.title 最近の試合 
+                  p.title 
+                    span 最近の試合
+                    span.prev ◀　
+                    span.next ▶
                   .viewport
                     .flipsnap
                       - for g in @games

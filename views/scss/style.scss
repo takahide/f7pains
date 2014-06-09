@@ -12,9 +12,9 @@ body {
   }
   .close-popup {
     position: absolute;
-    top: 5px;
-    right: 5px;
-    font-size: 150%;
+    top: 8px;
+    right: 8px;
+    font-size: 180%;
     color: #999;
     cursor: pointer;
   }
@@ -74,8 +74,20 @@ body {
   border-bottom: solid 1px #f00;
 }
 
+#top {
+  .left {
+    background: #ccc;
+  }
+}
+
+#details {
+  .left {
+    background: #000;
+  }
+}
+
 #top, #details {
-  background: #eee;
+  background: #000;
   .left {
     .header {
       img {
@@ -87,6 +99,15 @@ body {
       padding: 10px 0;
       .title {
         padding: 10px 10px 5px;
+        .prev {
+          margin-left: 15px;
+          cursor: pointer;
+          display: none;
+        }
+        .next {
+          cursor: pointer;
+          display: none;
+        }
       }
       .game {
         position: relative;
@@ -136,6 +157,7 @@ body {
         position: absolute;
         top: 0;
         width: 100%;
+        border: 1px solid #000;
       }
       .description {
         position: absolute;
@@ -147,9 +169,6 @@ body {
         .number {
           color: #f00;
           font-size: 120%;
-        }
-        .name {
-
         }
       }
     }
@@ -195,6 +214,7 @@ body {
     td {
       padding: 5px;
       text-align: center;
+      border: solid 1px #050;
     }
   }
   .score {
@@ -259,6 +279,16 @@ body {
     .left {
       width: 50%;
       float: left;
+      #games {
+        .title {
+          .prev {
+            display: inline;
+          }
+          .next {
+            display: inline;
+          }
+        }
+      }
     }
     .right {
       width: 50%;

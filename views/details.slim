@@ -37,7 +37,7 @@
               - for s in o.scores
                 td.result class="hit#{s.hit}" #{s.result}
       .right
-        p.title 選手紹介
+        p.title 出場選手
         - for p in @players do
           a.detail.open-popup.player player="#{p.id}" href="#" data-popup=".popup-about"
             img.pic src="img/players/#{p.id}.jpg"

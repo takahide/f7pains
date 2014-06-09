@@ -134,7 +134,7 @@ class PointSlim
     @name = name; @points = points
     @sum = 0
     for p in points
-      if p != "x"
+      if p != "x" || p != "-"
         @sum += p.to_i
       end
     end
@@ -152,6 +152,9 @@ get '/' do
       end
 
       games = Game.where team: @team.id
+      games = games.sort { |a, b|
+        b.date <=> a.date
+      }
       @games = Array.new
       for g in games
         t = Team.find g.opponent
